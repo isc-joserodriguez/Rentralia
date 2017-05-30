@@ -19,6 +19,7 @@ rootPage:any;
       }else{
         this.rootPage='Login';
         authObserver.unsubscribe(); 
+        
       }
     });
    
