@@ -13,14 +13,9 @@ export class MyApp {
 rootPage:any;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,afAuth: AngularFireAuth) {
     const authObserver= afAuth.authState.subscribe(user=>{
-      if(user){
-        this.rootPage=Tab;
+      
+        this.rootPage=Login;
         authObserver.unsubscribe();
-      }else{
-        this.rootPage='Login';
-        authObserver.unsubscribe(); 
-        
-      }
     });
    
    

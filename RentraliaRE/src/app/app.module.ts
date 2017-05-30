@@ -36,7 +36,7 @@ export const CONFIG={
     Buscador,
     Perfil,
     Mapa,
-    Tab
+    Login
     ],
   imports: [
     BrowserModule,
@@ -51,7 +51,7 @@ export const CONFIG={
     Buscador,
     Perfil,
     Mapa,
-    Tab
+    Login
   ],
   providers: [
     StatusBar,
