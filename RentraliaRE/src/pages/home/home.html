@@ -13,23 +13,26 @@
 
 <ion-content padding>
   
-    <ion-card>
+    <ion-card *ngFor="let item of listadoCasas|async">
         <img src="assets/casa.jpg">
         <ion-card-content>
             <ion-card-title>
-                Casa X
+                {{item.titulo}}
             </ion-card-title>
             <p>
-                Se vende
+                En: {{item.direccion.calle}} #{{item.direccion.numero}},Col {{item.direccion.colonia}}
             </p>
              <ion-icon name="contact"></ion-icon>
              <ion-icon name="people"></ion-icon>
              <ion-icon name="logo-octocat"></ion-icon>
             <ion-item >
-              <ion-badge item-right>$1500</ion-badge>
+              <ion-badge item-right>${{item.costo}}</ion-badge>
             </ion-item>
             <ion-item >
               <button  ion-button item-right>Detalles</button>
+            </ion-item>
+            <ion-item >
+              <button  ion-button item-right (click)="crearCasa()">Crear Casa</button>
             </ion-item>
 
         </ion-card-content>

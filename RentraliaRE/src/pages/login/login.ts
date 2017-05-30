@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,AlertController, NavParams,LoadingController,Loading } from 'ionic-angular';
 import {Tab} from '../tab/tab';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import  {AuthProvider} from '../../providers/auth';
+
 
 /**
  * Generated class for the Login page.
@@ -26,8 +28,14 @@ export class Login {
   password:any;
   email:any;
   password2:any;
+  loading:Loading;
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public fb:FormBuilder,public fb1:FormBuilder,) {
+  constructor(public navCtrl: NavController,
+  public alertCtrl: AlertController, 
+  public fb:FormBuilder,
+  public fb1:FormBuilder,
+  public loadingCtrl:LoadingController,
+  public authData:AuthProvider) {
     this.login=this.fb.group({
       username:["",Validators.required],
       password:["",Validators.required]
@@ -51,10 +59,32 @@ export class Login {
    
   }
   gotoInicio(){
-    if(this.username=='admin' && this.password=='1234'){
-      let all: any={username:this.username,password:this.password};
-      this.navCtrl.push(Tab)
-    }
+    this.authData.loginUser(this.username,this.password)
+    .then( authData=> {
+      this.navCtrl.setRoot('Tab');
+    },error=>{
+      this.loading.dismiss().then(()=>{
+        let alert =this.alertCtrl.create({
+          message:error.message,
+          buttons:[
+            {
+              text:"OK",
+              role:'cancel'
+            }
+          ]
+        });
+        alert.present();
+      });
+    });
+
+this.loading =this.loadingCtrl.create({
+  dismissOnPageChange:true,
+});
+
+
+this.loading.present();
+
+
   }
 
 }

@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import  {AuthProvider} from '../../providers/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
+import {Login} from '../login/login';
 
-/**
- * Generated class for the Perfil page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html',
 })
 export class Perfil {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  afAuth: AngularFireAuth;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authData:AuthProvider,afAuth: AngularFireAuth) {
+    this.afAuth=afAuth;
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Perfil');
+  }
+
+  logout(){
+  
+      
+   
   }
 
 }
