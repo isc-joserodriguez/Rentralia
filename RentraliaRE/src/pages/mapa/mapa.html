@@ -13,6 +13,8 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content	[ngClass]="{'no-scroll':	mapRendered}">
+		<div	id="map">
+				<button	ion-button	color="dark"	(click)="getMyLocation()">Mi ubicacion</button>
+		</div>
 </ion-content>

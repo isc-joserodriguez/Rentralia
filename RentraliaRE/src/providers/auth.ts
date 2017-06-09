@@ -16,13 +16,32 @@ import firebase from 'firebase/app';
 export class AuthProvider {
 
 private authState:Observable<firebase.User>;
-  private currentUser:firebase.User;
 
+  private currentUser:firebase.User;
+  private user:firebase.UserInfo;
+  
+
+public userData: any;
   constructor(public afAuth: AngularFireAuth) {
-    
+
+  this.userData = firebase.database().ref('/userData');
   }
   loginUser(newEmail: string, newPassword: string): firebase.Promise<any> {
+    
   return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
+}
+showEmail(){
+  return this.afAuth.auth.currentUser.email;
+}
+showNick(){
+  return this.afAuth.auth.currentUser.displayName;
+}
+editNick(nick:string):firebase.Promise<any>{
+return this.afAuth.auth.currentUser.updateProfile({
+    displayName:nick,
+    photoURL:''
+  });
+
 }
 resetPassword(email: string): firebase.Promise<any> {
   return this.afAuth.auth.sendPasswordResetEmail(email);

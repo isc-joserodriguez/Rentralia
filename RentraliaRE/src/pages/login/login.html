@@ -7,102 +7,122 @@
 <ion-header>
 
   <ion-navbar>
-    <h1 class="titulo-color">Login</h1>
+    <h1 class="titulo-color">Inicio de sesion</h1>
   </ion-navbar>
 
 </ion-header>
 
+
 <ion-content text-center class="home">
+  <div class="imagen">
+  <img src="assets/icon.png">
+</div>
   <ion-list>
     <ion-item>
-      <ion-label> Registrarse</ion-label>
+      <ion-label color="rentra"> Registrarse</ion-label>
       <ion-toggle checked="false" [(ngModel)]="registrar" (ionChange)="toggleRegistro($event)">></ion-toggle>
     </ion-item>
-
+<div class="cuadrologin">
 <form [formGroup]="login"> 
-    <ion-card *ngIf="opt == 0">
-      <ion-card-header>
-        <ion-icon name="person"></ion-icon>
-        <hr>
-        <ion-card-title>
-          Login
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-            <ion-item>
-              <ion-label floating>Username(Email)</ion-label>
-              <ion-input [(ngModel)]="username" type="text" value="" formControlName="username"></ion-input>
-            </ion-item>
-            <ion-item *ngIf="login.get('username').errors">
-              <p *ngIf="login.get('username').hasError('required')" color="danger">Ingrese un usuario</p>        
-            </ion-item>
-            <ion-item>
-              <ion-label floating>Password</ion-label>
-              <ion-input [(ngModel)]="password" type="password" formControlName="password"></ion-input>
-            </ion-item>
-            <ion-item *ngIf="login.get('password').errors">
-              <p *ngIf="login.get('password').hasError('required')" color="danger">Ingrese un password</p>        
-            </ion-item>
-          </ion-list>
+
+<div *ngIf="opt==0">
+  <div class="labeluno">
+    <ion-label>USUARIO:</ion-label>
+  </div>
+  <div class="entrada">
+      <ion-input [(ngModel)]="username" type="text"  formControlName="username" placeholder="Username(Email)"></ion-input>
+   
+  </div>
+  <div class="griss" *ngIf="login.get('username').errors">
+  <p *ngIf="login.get('username').hasError('required')" color="danger">Ingrese un usuario</p>        
+
+  </div>
+ 
+    <div class="labeluno">
+    <ion-label>PASSWORD:</ion-label>
+    </div>
+    <div class="entrada">
+     <ion-input [(ngModel)]="password" type="password" formControlName="password" placeholder="Password"></ion-input>
+  
+    
+    </div>
+    <div class="griss" *ngIf="login.get('password').errors">
+        <p *ngIf="login.get('password').hasError('required')" color="danger">Ingrese un password</p>        
+         
+    </div>
+        
           <br>
-           <button ion-button block round [disabled]="!login.valid" (click)="gotoInicio()"> 
+      
+      <div class="botones">
+        <button ion-button block round [disabled]="!login.valid" (click)="gotoInicio()" class="botoncrema"> 
                 Entrar
               </button>
 
-      <button ion-button block round (click)="doFbLogin()" block>Facebook Login</button>
-      <button ion-button block round color="danger" (click)="doGoogleLogin()" block>Google Login</button>
+      <button ion-button block round (click)="sesionFast()" block class="botonfacebook">Facebook Login</button>
+      <button ion-button block round color="danger" (click)="doGoogleLogin()" block class="botongoogle">Google Login</button>
 
-      </ion-card-content>
-    </ion-card>
+      </div>
+  
+
+</div>
+
+
+   
 </form>
+</div>
     
 <form [formGroup]="registro"> 
-  <ion-card *ngIf="opt == 1">
-    <ion-card-header>
+<div class="registroestilo" *ngIf="opt == 1">
+  <div class="iconomas">
       <ion-icon name="add-circle"></ion-icon>
-      <hr>
-      <ion-card-title>
-        Crear Cuenta
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Username(email)</ion-label>
-          <ion-input type="text" value="" formControlName="username"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="registro.get('username').errors">
-           <p *ngIf="registro.get('username').hasError('required')" color="danger">Ingrese un usuario</p>        
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Email</ion-label>
-          <ion-input type="text" value="" formControlName="email"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="registro.get('email').errors">
+      <br>
+      <h1>Crear Cuenta</h1>
+  </div>
+  <div class="contenidoregistro">
+
+      <div class="labeluno">
+          <ion-label>Email:</ion-label>
+          
+      </div>
+      <div class="entrada2">
+          <ion-input type="text" value="" formControlName="email" [(ngModel)]="email"></ion-input>
+        
+      </div>
+      <ion-item *ngIf="registro.get('email').errors">
            <p *ngIf="registro.get('email').hasError('required') || registro.get('email').hasError('pattern')" color="danger">Ingrese un correo válido</p>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Password</ion-label>
+      </ion-item>
+        
+      <div class="labeluno">
+         <ion-label>Password:</ion-label>
+      </div>
+      <div class="entrada2">
           <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="registro.get('password').errors">
+          
+      </div>
+      <ion-item *ngIf="registro.get('password').errors">
            <p *ngIf="registro.get('password').hasError('required')" color="danger">Ingrese un password</p>        
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Confirmar Password</ion-label>
-          <ion-input type="password" formControlName="password2" [(ngModel)]="password2"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="registro.get('password2').errors || password2!=password">
+      </ion-item>
+
+       <div class="labeluno">
+                 <ion-label>Confirmar Password:</ion-label>
+         </div> 
+         <div class="entrada2">
+             <ion-input type="password" formControlName="password2" [(ngModel)]="password2"></ion-input>
+         </div>
+          <ion-item *ngIf="registro.get('password2').errors || password2!=password">
            <p *ngIf="registro.get('password2').hasError('required')" color="danger">Confirme password</p>
            <p *ngIf="password2!=password" color="danger">Las password no coinciden</p>
 
         </ion-item>
-      </ion-list>
-      <br>
-        <button ion-button block round [disabled]="!registro.valid"> 
+        <br>
+        <button ion-button block round [disabled]="!registro.valid" (click)="crearUsuario()" class="botoncrema"> 
             Registrar
         </button>
-    </ion-card-content>
-  </ion-card>
+      
+
+  </div>
+
+
+</div>
+
 </form>

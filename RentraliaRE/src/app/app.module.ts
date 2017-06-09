@@ -2,12 +2,12 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 import { Mapa } from '../pages/mapa/mapa';
+import { Detalles } from '../pages/detalles/detalles';
 import { Home } from '../pages/home/home';
 import { Buscador } from '../pages/buscador/buscador';
 import { Perfil } from '../pages/perfil/perfil';
-import { Tab } from '../pages/tab/tab';
 import  {AuthProvider} from '../providers/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +17,7 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 
 import {AngularFireDatabase} from 'angularfire2/database';
+
 
 
 export const CONFIG={
@@ -33,16 +34,19 @@ export const CONFIG={
   declarations: [
     MyApp,
     Home,
+    Login,
     Buscador,
     Perfil,
     Mapa,
-    Login
+     Detalles
+    
     ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,10 +55,12 @@ export const CONFIG={
     Buscador,
     Perfil,
     Mapa,
-    Login
+    Login,
+    Detalles
   ],
   providers: [
     StatusBar,
+    GoogleMaps,
     SplashScreen,
     AuthProvider,
     AngularFireDatabase,

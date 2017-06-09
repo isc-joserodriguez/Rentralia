@@ -3,15 +3,84 @@ page-login {
 }
 
 .bar .bar-positive{
-    background-color: #470B7F;
+    
+     background: -webkit-linear-gradient(left top,#663399, #BF55EC);
     color:#FFFFFF;
     
 }
 .toolbar-background{
-    background-color: #470B7F;
+    background: -webkit-linear-gradient(left top,#663399, #470B7F);
     color:#FFFFFF;
 }
 
 .titulo-color{
+    text-align: center;
     color: #FFFFFF;
+}
+.imagen{
+   
+    width: 30%;
+     margin: 0 auto;
+}
+.cuadrologin{
+    background: #663399;
+     background: -webkit-linear-gradient(left top,#663399, #470B7F);
+}
+.botones{
+     background: -webkit-linear-gradient(left top,#663399, #470B7F);
+}
+.botoncrema{
+    background: #DCC6E0;
+    color:#470B7F;
+    
+}
+.botonfacebook,.botongoogle{
+    background: white;
+    
+ 
+
+}
+
+.griss{
+    color: #BF55EC;
+}
+.labeluno{
+    color:#470B7F;
+    background: white;
+   padding: 0.3em 1em;
+}
+
+input{
+   text-align:center;
+}
+.entrada2{
+    background: #9B59B6;
+    color:white;
+    font-size: 1.3em;
+}
+.entrada{
+    color:white;
+    font-size: 1.3em;
+}
+.centro{
+    text-align: center;
+}
+.botonfacebook{
+    color:#446CB3;
+}
+.botongoogle{
+   color: #F64747;
+}
+.registoestilo{
+    background: #9B59B6;
+}
+.iconomas{
+    color:#470B7F;
+    text-align: center;
+    background: white;
+    padding:1em;
+    font-size: 1.3em;
+}
+ion-card-content{
+      background: #663399;
 }

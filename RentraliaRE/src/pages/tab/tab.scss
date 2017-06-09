@@ -9,6 +9,7 @@ page-tab {
     background-color: #470B7F;
     color:#470B7F;
 }
-.tabs-color-active-positive, .tabs {
-    color: #c49137 !important;
+
+.tab-item.dash.tab-item-active, .tab-item.dash.active, .tab-item.dash.activated {
+    color: $energized !important;
 }

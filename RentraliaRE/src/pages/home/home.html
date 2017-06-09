@@ -6,36 +6,42 @@
 -->
 <ion-header>
   <ion-navbar>
-    <h1 class="titulo-color">Home</h1>
+      
+    <h1 class="titulo-color">Casas Cercanas</h1>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  
-    <ion-card *ngFor="let item of listadoCasas|async">
-        <img src="assets/casa.jpg">
-        <ion-card-content>
-            <ion-card-title>
-                {{item.titulo}}
-            </ion-card-title>
-            <p>
-                En: {{item.direccion.calle}} #{{item.direccion.numero}},Col {{item.direccion.colonia}}
+<ion-content>
+        
+  <div class="modcasa" *ngFor="let item of listadoCasas|async">
+      <div class="modimg">
+        
+            <div class="costo">
+               <ion-icon name="logo-usd"></ion-icon>
+               {{item.costo}}
+            </div>
+         <img src="assets/casa.jpg">
+      </div>
+      <ion-list>
+        <ion-item>
+           <ion-icon name="home" item-left></ion-icon>
+          {{item.titulo}}
+          <ion-icon name="contact" item-rigth></ion-icon>
+             <ion-icon name="people" item-rigth></ion-icon>
+             <ion-icon name="logo-octocat" item-rigth></ion-icon>
+        </ion-item>
+ 
+        <ion-item> <p>
+                Direccion: {{item.direccion.calle}} #{{item.direccion.numero}},Col {{item.direccion.colonia}}
             </p>
-             <ion-icon name="contact"></ion-icon>
-             <ion-icon name="people"></ion-icon>
-             <ion-icon name="logo-octocat"></ion-icon>
-            <ion-item >
-              <ion-badge item-right>${{item.costo}}</ion-badge>
-            </ion-item>
-            <ion-item >
-              <button  ion-button item-right>Detalles</button>
-            </ion-item>
-            <ion-item >
-              <button  ion-button item-right (click)="crearCasa()">Crear Casa</button>
-            </ion-item>
+            <button (click)="verDetalles()" item-right><ion-icon name="eye" item-rigth>ver</ion-icon></button>
+            
+        </ion-item>
+            
+      </ion-list>
 
-        </ion-card-content>
-    </ion-card>
+  </div>
+  
 
 </ion-content>

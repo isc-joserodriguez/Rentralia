@@ -13,17 +13,29 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-content>
-      <ion-card>
-        <ion-item> 
-          <ion-thumbnail item-left item-right>
-                <img src="assets/perfil.png">
-          </ion-thumbnail>
-        </ion-item>
-          
-      </ion-card>
-  </ion-content>
+  <div class="imagen">
+     <ion-thumbnail item-left item-right>
+                <img src="assets/avatar.png">
+     </ion-thumbnail>
+  </div>
+  <br>
+  <div class="labeluno">
+    Usuario: <span *ngIf="!tieneNick">{{uDataNick}}</span> 
+      <span *ngIf="tieneNick">Sin Nickname </span>
+
+  </div>
+  <hr>
+  <div class="labeluno">
+    Correo: <span> {{uDataEmail}}</span>
+    <br>
+    Password: <span>***********</span>
   
-  <button  ion-button (click)="logout()">Logout</button>
+  
+  </div>
+   <br>
+  <button ion-button (click)="editarNick()" color="colorBtn" block>Editar info</button>
+ 
+  
+  
 
 </ion-content>

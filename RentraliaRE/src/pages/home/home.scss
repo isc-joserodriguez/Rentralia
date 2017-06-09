@@ -7,11 +7,32 @@ page-login {
     color:#FFFFFF;
     
 }
+.modimg{
+    position: relative;
+}
+
+.costo{
+    position: absolute;
+    top:1em;
+    left: 1em;
+    padding:1em;
+    border-radius:1em;
+}
+
 .toolbar-background{
     background-color: #470B7F;
     color:#FFFFFF;
 }
-
+.costo{
+    background:rgba(71,11,127,.8);
+    color:white;
+}
 .titulo-color{
     color: #FFFFFF;
+}
+
+.modcasa{
+    background-color: #2574A9;
+    padding: .3em;
+    margin: .2em;
 }

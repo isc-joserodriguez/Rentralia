@@ -2,21 +2,15 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Login } from '../pages/login/login';
-import { Tab } from '../pages/tab/tab';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
 rootPage:any;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,afAuth: AngularFireAuth) {
-    const authObserver= afAuth.authState.subscribe(user=>{
-      
-        this.rootPage=Login;
-        authObserver.unsubscribe();
-    });
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    this.rootPage=Login;
    
    
     platform.ready().then(() => {
