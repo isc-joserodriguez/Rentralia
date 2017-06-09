@@ -1,0 +1,87 @@
+<!--
+  Generated template for the Perfil page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <h1 class="titulo-color">Perfil</h1>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-card class="borde">
+        <ion-card-content>
+            <ion-item>
+              <label class="negritas" >Correo: </label>
+              <label >jucevalenciaza@ittepic.edu.mx</label>
+            </ion-item>
+            <div class="centrar">
+             <ion-item >
+               <ion-thumbnail >
+                <img src="assets/shepe.jpg" >
+              </ion-thumbnail>
+             </ion-item>
+            <button  class ="botones">Agregar</button>
+             </div>
+            <ion-item >
+              <label class="negritas">Tipo de cuenta:</label>
+              <label item-right>PREMIUM</label>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-item *ngIf = "agregado">
+      <button class = "botones" item-left (click) = "agregar()" >Agregar Informacion Personal</button>
+      </ion-item>
+    <ion-card *ngIf = "creado">
+      <ion-card-header class="negritas">Información Personal</ion-card-header>
+      <ion-card-content>
+           <form [formGroup] = "formulario">
+              <ion-item >
+                <label class="negritas" item-left>Nombre: </label>
+                <ion-input class="label" item-right formControlName="nombre" ></ion-input>
+              </ion-item>
+              <ion-item *ngIf="formulario.get('nombre').hasError('required') && creados">
+                <ion-label color= "danger">Campo obligatorio</ion-label>
+              </ion-item>
+              <ion-item >
+                <label class="negritas" item-left>Ap. Paterno: </label>
+                <ion-input item-right formControlName="apPaterno" ></ion-input>
+              </ion-item>
+                <ion-item *ngIf="formulario.get('apPaterno').hasError('required') && creados">
+                <ion-label class="label" color= "danger">Campo obligatorio</ion-label>
+              </ion-item>
+              <ion-item >
+                <label class="negritas" item-left>Ap. Materno: </label>
+                <ion-input item-right formControlName="apMaterno" ></ion-input>
+              </ion-item>
+                <ion-item *ngIf="formulario.get('apMaterno').hasError('required') && creados">
+                <ion-label class="label" color= "danger">Campo obligatorio</ion-label>
+              </ion-item>
+              <ion-item >
+                <label class="negritas" item-left>Telefono: </label>
+                <ion-input item-right formControlName="telefono" ></ion-input>
+              </ion-item>
+                <ion-item *ngIf="formulario.get('telefono').hasError('required') && creados">
+                <ion-label class="label" color= "danger">Campo obligatorio</ion-label>
+              </ion-item>
+              <ion-item >
+                <label class="negritas" item-left>Dirección: </label>
+                <ion-input item-right formControlName="direccion" ></ion-input>
+              </ion-item>
+                <ion-item *ngIf="formulario.get('direccion').hasError('required') && creados">
+                <ion-label class="label" color= "danger">Campo obligatorio</ion-label>
+              </ion-item>
+              <ion-item *ngIf="guardado">
+                <button class="botones" item-left (click) = "guardar()">Guardar</button>
+                <button class="botones" item-right (click) = "cancelar()">Cancelar</button>
+              </ion-item>
+           </form>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
