@@ -8,6 +8,7 @@ import { Detalles } from '../pages/detalles/detalles';
 import { Home } from '../pages/home/home';
 import { Buscador } from '../pages/buscador/buscador';
 import { Perfil } from '../pages/perfil/perfil';
+import { EditarPerfil } from '../pages/editar-perfil/editar-perfil';
 import  {AuthProvider} from '../providers/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -38,7 +39,8 @@ export const CONFIG={
     Buscador,
     Perfil,
     Mapa,
-     Detalles
+     Detalles,
+     EditarPerfil
     
     ],
   imports: [
@@ -56,7 +58,8 @@ export const CONFIG={
     Perfil,
     Mapa,
     Login,
-    Detalles
+    Detalles,
+    EditarPerfil
   ],
   providers: [
     StatusBar,

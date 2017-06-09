@@ -3,6 +3,7 @@ import { IonicPage, NavController,AlertController, NavParams,LoadingController,L
 import  {AuthProvider} from '../../providers/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {  Login} from '../login/login';
+import { EditarPerfil } from '../editar-perfil/editar-perfil';
 
 
 
@@ -64,6 +65,9 @@ this.loading.present();
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Perfil');
+  }
+  editarPerfil(){
+    this.navCtrl.push(EditarPerfil);
   }
 
   logout(){
